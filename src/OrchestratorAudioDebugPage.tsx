@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { config } from './config'
 import { PcmPlayer, base64ToBytes, sampleRateFromMime } from './audio/PcmPlayer'
+import { TurnTracePanel } from './TurnTracePanel'
 
 interface OrchestratorClient {
   id: string
@@ -275,6 +276,7 @@ export function OrchestratorAudioDebugPage() {
                 <ChannelPanel channel="received" token={token} connected={connected} />
                 <ChannelPanel channel="sent" token={token} connected={connected} />
               </div>
+              <TurnTracePanel key={resetNonce} token={token} connected={connected} />
             </div>
           )}
         </>
